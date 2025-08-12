@@ -3,12 +3,10 @@
 {
 "FROM":
 [
-"/DMO/FLIGHT"
+"/DMO/AIRPORT"
 ],
 "ASSOCIATED":
-[
-"ZI_BD_CARRIER"
-],
+[],
 "BASE":
 [],
 "ANNO_REF":

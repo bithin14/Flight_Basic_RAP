@@ -9,11 +9,13 @@
 }
 define view entity ZI_BD_Flight
   as select from /dmo/flight
+  association [0..1] to ZI_BD_Carrier as _Carrier on $projection.CarrierId = _Carrier.CarrierId
 {
       @UI.facet: [{ type: #IDENTIFICATION_REFERENCE,
       label: 'Flight Detail',
       id: 'FlightInfo' }]
       @UI: { lineItem: [{ position: 10 , label: 'Airline'}], identification: [{ position: 10 }] }
+      @ObjectModel.text.association: '_Carrier'
   key carrier_id     as CarrierId,
       @UI: { lineItem: [{ position: 20}] , identification: [{ position: 20 }] }
   key connection_id  as ConnectionId,
@@ -28,5 +30,6 @@ define view entity ZI_BD_Flight
       @UI: { identification: [{ position: 60 }] }
       seats_max      as SeatsMax,
       @UI: { identification: [{ position: 70 }] }
-      seats_occupied as SeatsOccupied
+      seats_occupied as SeatsOccupied,
+      _Carrier
 }
